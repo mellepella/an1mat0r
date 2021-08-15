@@ -10,12 +10,29 @@ class Canvas {
           this.ctx.clearRect(x, y, height, width);
         },
       },
+      background: {
+        draw: ({ color }) => {
+          this.ctx.fillStyle = color;
+          this.ctx.fillRect(0, 0, this.width, this.height);
+        },
+        erase: () => {
+          this.ctx.clearRect(0, 0, this.width, this.height);
+        },
+      },
     };
     this.width = width;
     this.height = height;
     this.id = id;
     this.src;
     this.ctx;
+  }
+
+  create() {
+    const elem = document.createElement("canvas");
+    elem.height = this.height;
+    elem.width = this.width;
+    elem.id = this.id;
+    Document.manipulate({ method: "append", elem });
   }
 
   draw(props = { shape, x, y, width, height, color }) {
@@ -40,13 +57,5 @@ class Canvas {
     }
     console.error(`Canvas with id "${this.id}" already exists!`);
     return false;
-  }
-
-  create() {
-    const elem = document.createElement("canvas");
-    elem.height = this.height;
-    elem.width = this.width;
-    elem.id = this.id;
-    Document.manipulate({ method: "append", elem });
   }
 }

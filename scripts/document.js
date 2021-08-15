@@ -4,6 +4,9 @@ class Document {
       document.body.appendChild(elem);
       return true;
     },
+    hide: (elem) => {
+      document.getElementById(elem.id).style.display = "none";
+    },
   };
 
   static onLoad() {
