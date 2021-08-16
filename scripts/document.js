@@ -7,7 +7,16 @@ class Document {
     hide: (elem) => {
       document.getElementById(elem.id).style.display = "none";
     },
+    show: (elem) => {
+      document.getElementById(elem.id).style.display = "initial";
+    },
   };
+
+  static find(identifier) {
+    return (
+      document.getElementById(identifier) ?? document.getElementsByClassName(id)
+    );
+  }
 
   static onLoad() {
     deployGlobalVariables();

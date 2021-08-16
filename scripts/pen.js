@@ -1,6 +1,5 @@
 class Pen {
-  constructor({ color, shape, width, height, id }) {
-    this.shape = shape;
+  constructor({ color, width, height, id }) {
     this.color = color;
     this.width = width;
     this.height = height;

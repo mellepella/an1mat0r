@@ -1,25 +1,5 @@
 class Canvas {
   constructor({ width, height, id }) {
-    this.dictionary = {
-      rect: {
-        draw: ({ x, y, width, height, color }) => {
-          this.ctx.fillStyle = color;
-          this.ctx.fillRect(x, y, width, height);
-        },
-        erase: ({ x, y, width, height }) => {
-          this.ctx.clearRect(x, y, height, width);
-        },
-      },
-      background: {
-        draw: ({ color }) => {
-          this.ctx.fillStyle = color;
-          this.ctx.fillRect(0, 0, this.width, this.height);
-        },
-        erase: () => {
-          this.ctx.clearRect(0, 0, this.width, this.height);
-        },
-      },
-    };
     this.width = width;
     this.height = height;
     this.id = id;
@@ -35,12 +15,22 @@ class Canvas {
     Document.manipulate({ method: "append", elem });
   }
 
-  draw(props = { shape, x, y, width, height, color }) {
-    this.dictionary[props.shape].draw(props);
+  draw({ x, y, width, height, color }) {
+    this.ctx.fillStyle = color;
+    this.ctx.fillRect(x, y, width, height);
   }
 
-  erase(props = { shape, x, y, width, height }) {
-    this.dictionary[props.shape].erase(props);
+  drawBg({ color }) {
+    this.ctx.fillStyle = color;
+    this.ctx.fillRect(0, 0, this.width, this.height);
+  }
+
+  erase({ x, y, width, height }) {
+    this.ctx.clearRect(x, y, height, width);
+  }
+
+  hide() {
+    Document.manipulate({ method: "hide", elem: this.src });
   }
 
   isValid() {
@@ -48,10 +38,14 @@ class Canvas {
     return elemInDocument ? false : true;
   }
 
+  show() {
+    Document.manipulate({ method: "show", elem: this.src });
+  }
+
   start() {
     if (this.isValid()) {
       this.create();
-      this.src = document.getElementById(this.id);
+      this.src = Document.find(this.id);
       this.ctx = this.src.getContext("2d");
       return true;
     }
