@@ -1,12 +1,21 @@
 class Pen {
   constructor({ color, width, height, id }) {
+    this.x;
+    this.y;
+    this.id = id;
     this.color = color;
     this.width = width;
     this.height = height;
     this.method = "draw";
-    this.id = id;
-    this.x;
-    this.y;
+    this.methods = ["draw", "erase"];
+  }
+
+  changeMethod(method) {
+    if (this.methods.includes(method)) {
+      this.method = method;
+      return;
+    }
+    this.error(`Method: "${method}" is invalid!`);
   }
 
   draw(x, y) {
@@ -19,6 +28,10 @@ class Pen {
     this.x = x;
     this.y = y;
     c.erase(this);
+  }
+
+  error(message) {
+    console.error(`Error: ${message}`);
   }
 
   start() {

@@ -49,7 +49,7 @@ class Canvas {
       this.ctx = this.src.getContext("2d");
       return true;
     }
-    console.error(`Canvas with id "${this.id}" already exists!`);
+    console.error(`Error: Canvas with id "${this.id}" already exists!`);
     return false;
   }
 }
