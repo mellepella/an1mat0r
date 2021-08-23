@@ -1,14 +1,15 @@
 class Canvas {
-  constructor({ width, height, id }) {
+  constructor({ width, height }) {
     this.width = width;
     this.height = height;
-    this.id = id;
+    this.id;
     this.src;
     this.ctx;
   }
 
   create() {
     const elem = document.createElement("canvas");
+    this.id = this.createId();
     elem.height = this.height;
     elem.width = this.width;
     elem.id = this.id;
@@ -18,6 +19,13 @@ class Canvas {
   draw({ x, y, width, height, color }) {
     this.ctx.fillStyle = color;
     this.ctx.fillRect(x, y, width, height);
+  }
+
+  createId() {
+    if (this.id) {
+      return this.id;
+    }
+    return FrameHandler.frames.length;
   }
 
   drawBg({ color }) {

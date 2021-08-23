@@ -1,8 +1,10 @@
 class Document {
   static methods = {
     append: (elem) => {
-      document.body.appendChild(elem);
-      return true;
+      document.getElementById("drawing-area").appendChild(elem);
+    },
+    delete: (elem) => {
+      document.getElementById("drawing-area").removeChild(elem);
     },
     hide: (elem) => {
       document.getElementById(elem.id).style.display = "none";
@@ -14,14 +16,13 @@ class Document {
 
   static find(identifier) {
     return (
-      document.getElementById(identifier) ?? document.getElementsByClassName(id)
+      document.getElementById(identifier) ??
+      document.getElementsByClassName(identifier)
     );
   }
 
   static onLoad() {
-    deployGlobalVariables();
-    c.start();
-    pen.start();
+    Application.start();
   }
 
   static manipulate({ method, elem }) {

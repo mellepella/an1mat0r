@@ -21,13 +21,13 @@ class Pen {
   draw(x, y) {
     this.x = x;
     this.y = y;
-    c.draw(this);
+    FrameHandler.currentFrame.draw(this);
   }
 
   erase(x, y) {
     this.x = x;
     this.y = y;
-    c.erase(this);
+    FrameHandler.currentFrame.erase(this);
   }
 
   error(message) {
@@ -35,10 +35,10 @@ class Pen {
   }
 
   start() {
-    c.src.addEventListener("mousedown", function (ev) {
-      const x = Math.floor(ev.x / UNIT_SIZE) * UNIT_SIZE;
-      const y = Math.floor(ev.y / UNIT_SIZE) * UNIT_SIZE;
-      pen[pen.method](x, y);
+    FrameHandler.currentFrame.src.addEventListener("mousedown", function (ev) {
+      const x = Application.roundToGrid(ev.offsetX);
+      const y = Application.roundToGrid(ev.offsetY);
+      Application.pen[Application.pen.method](x, y);
     });
   }
 }
