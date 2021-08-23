@@ -6,15 +6,16 @@ class Application {
     width: this.UNIT_SIZE,
     height: this.UNIT_SIZE,
   });
+  static frameTemplate = {
+    width: this.UNIT_SIZE * 15,
+    height: this.UNIT_SIZE * 10,
+  };
 
   static roundToGrid(value) {
     return Math.floor(value / this.UNIT_SIZE) * this.UNIT_SIZE;
   }
 
   static start() {
-    FrameHandler.newFrame({
-      width: this.UNIT_SIZE * 15,
-      height: this.UNIT_SIZE * 10,
-    });
+    FrameHandler.newFrame(this.frameTemplate);
   }
 }

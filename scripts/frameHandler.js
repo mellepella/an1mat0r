@@ -4,7 +4,6 @@ class FrameHandler {
 
   static changeCurrentFrame(index) {
     this.currentFrame = this.frames[index];
-    this.show(index);
     Application.pen.start();
   }
 
@@ -16,7 +15,8 @@ class FrameHandler {
     const canvas = new Canvas(props);
     canvas.start();
     this.frames.push(canvas);
-    this.changeCurrentFrame(canvas.id);
+    this.show(canvas.id);
+    UserInterface.sliderRefresh();
   }
 
   static hideAllFrames() {
@@ -29,6 +29,8 @@ class FrameHandler {
     if (this.frames[id]) {
       this.hideAllFrames();
       this.frames[id].show();
+      this.changeCurrentFrame(id);
+      UserInterface.sliderRefresh();
       return true;
     }
     this.error(`Frame "${id}" does not exist!`);

@@ -13,23 +13,45 @@ canvas {
 }
 
 button {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  width: 4rem;
-  background-color: var(--main-dark-white);
+  background-color: var(--main-darker-white);
   border: solid var(--main-black) 2px;
   border-radius: 5px;
   transition: all .1s;
 }
 
 button:hover {
-  background-color: var(--main-darker-white);
+  background-color: var(--main-darkest-white);
+}
+
+.big-button {
+  box-shadow: rgba(0, 0, 0, .4) 0px 0px 10px;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  width: 4rem;
+}
+
+.small-button {
+  width: 2rem;
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+}
+
+.slider {
+  height: 4px;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, .5) 0px 0px 10px;
 }
 
 #info-field {
-  width: 10rem;
+  width: 11rem;
   padding: 1rem;
   background-color: var(--main-dark-white);
+}
+
+#info-field > * {
+  margin: .3rem;
 }
 
 #drawing-area {
@@ -42,6 +64,10 @@ button:hover {
 
 #toolbar {
   padding-left: 1rem;
+}
+
+#toolbar > * {
+  margin: .3rem;
 }
 
 #application {

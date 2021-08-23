@@ -10,18 +10,28 @@
 </head>
 <body>
   <div id="application">
-    <div id="drawing-area">
+    <div id="drawing-area" class="shadow">
       <div id="info-field">
+        <label id="frames-slider-label">Current frame</label>
+        <div>
+          <input type="range" class="slider" id="frames-slider" min="0" max="0" onchange="UserInterface.sliderOnChange()">
+          <button class="small-button" onclick="UserInterface.newFrame()">+</button>
+        </div>
+        <div class="frame-tools">
+          <button onclick="UserInterface.showPreviousFrame()"><<</button>
+          <button onclick="UserInterface.showNextFrame()">>></button>
+        </div>
         <p id="x-coordinate">X: ...</p>
         <p id="y-coordinate">Y: ...</p>
       </div>
     </div>
     <div id="toolbar">
-      <button onclick="Application.pen.changeMethod('draw')">Pen</button>
-      <button onclick="Application.pen.changeMethod('erase')">Eraser</button>
+      <button class="big-button" onclick="Application.pen.changeMethod('draw')">Pen</button>
+      <button class="big-button" onclick="Application.pen.changeMethod('erase')">Eraser</button>
     </div>
   </div>
 </body>
+<script src='../scripts/userInterface.js'></script>
 <script src='../scripts/canvas.js'></script>
 <script src='../scripts/pen.js'></script>
 <script src='../scripts/document.js'></script>
