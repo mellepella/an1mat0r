@@ -4,7 +4,7 @@ class UserInterface {
   static binds = {
     frameHandler: {
       play: () => {
-        FrameHandler.play(200);
+        FrameHandler.play();
       },
       showNextFrame: () => {
         FrameHandler.showNextFrame();

@@ -1,5 +1,6 @@
 class FrameHandler {
   static currentFrame;
+  static frameSpeed = 200;
   static frames = [];
   static errors = {
     invalidFrame: (id) => {
@@ -33,14 +34,14 @@ class FrameHandler {
     }
   }
 
-  static play(speed) {
+  static play() {
     this.show(0);
     const intervalId = setInterval(function () {
       FrameHandler.showNextFrame();
       if (!FrameHandler.frameExists(FrameHandler.currentFrame.id + 1)) {
         clearInterval(intervalId);
       }
-    }, speed);
+    }, this.frameSpeed);
   }
 
   static show(id) {
