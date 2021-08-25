@@ -8,14 +8,20 @@ class Pen {
     this.height = height;
     this.method = "draw";
     this.methods = ["draw", "erase"];
+    this.errors = {
+      invalidMethod(method) {
+        return `Method: "${method}" is invalid!`;
+      },
+    };
   }
 
   changeMethod(method) {
     if (this.methods.includes(method)) {
       this.method = method;
-      return;
+      return true;
     }
-    this.error(`Method: "${method}" is invalid!`);
+    Application.error(this.errors.invalidMethod(method));
+    return false;
   }
 
   draw(x, y) {
@@ -28,10 +34,6 @@ class Pen {
     this.x = x;
     this.y = y;
     FrameHandler.currentFrame.erase(this);
-  }
-
-  error(message) {
-    console.error(`Error: ${message}`);
   }
 
   start() {

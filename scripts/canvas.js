@@ -41,23 +41,14 @@ class Canvas {
     Document.manipulate({ method: "hide", elem: this.src });
   }
 
-  isValid() {
-    const elemInDocument = document.getElementById(this.id);
-    return elemInDocument ? false : true;
-  }
-
   show() {
     Document.manipulate({ method: "show", elem: this.src });
   }
 
   start() {
-    if (this.isValid()) {
-      this.create();
-      this.src = Document.find(this.id);
-      this.ctx = this.src.getContext("2d");
-      return true;
-    }
-    console.error(`Error: Canvas with id "${this.id}" already exists!`);
-    return false;
+    this.create();
+    this.src = Document.find(this.id);
+    this.ctx = this.src.getContext("2d");
+    return true;
   }
 }

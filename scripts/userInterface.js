@@ -1,21 +1,38 @@
 class UserInterface {
   static tools = { slider: document.getElementById("frames-slider") };
-  static sliderLabel = document.getElementById("frames-slider-label");
+  static info = { sliderLabel: document.getElementById("frames-slider-label") };
+  static binds = {
+    frameHandler: {
+      play: () => {
+        FrameHandler.play(200);
+      },
+      showNextFrame: () => {
+        FrameHandler.showNextFrame();
+      },
+      showPreviousFrame: () => {
+        FrameHandler.showPreviousFrame();
+      },
+    },
+    pen: {
+      enableDraw: () => {
+        Application.pen.changeMethod("draw");
+      },
+      enableErase: () => {
+        Application.pen.changeMethod("erase");
+      },
+    },
+  };
 
   static newFrame() {
     FrameHandler.newFrame(Application.frameTemplate);
   }
 
-  static showNextFrame() {
-    FrameHandler.show(FrameHandler.currentFrame.id + 1);
-  }
-
-  static showPreviousFrame() {
-    FrameHandler.show(FrameHandler.currentFrame.id - 1);
+  static handleClick({ subject, action }) {
+    this.binds[subject][action]();
   }
 
   static sliderLabelRefresh(currentFrame) {
-    this.sliderLabel.innerHTML = `Current frame: ${currentFrame}`;
+    this.info.sliderLabel.innerHTML = `Current frame: ${currentFrame}`;
   }
 
   static sliderOnChange() {

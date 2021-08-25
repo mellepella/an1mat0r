@@ -18,19 +18,21 @@
           <button class="small-button" onclick="UserInterface.newFrame()">+</button>
         </div>
         <div class="frame-tools">
-          <button onclick="UserInterface.showPreviousFrame()"><<</button>
-          <button onclick="UserInterface.showNextFrame()">>></button>
+          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showPreviousFrame'})"><<</button>
+          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'play'})">Play</button>
+          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showNextFrame'})">>></button>
         </div>
         <p id="x-coordinate">X: ...</p>
         <p id="y-coordinate">Y: ...</p>
       </div>
     </div>
     <div id="toolbar">
-      <button class="big-button" onclick="Application.pen.changeMethod('draw')">Pen</button>
-      <button class="big-button" onclick="Application.pen.changeMethod('erase')">Eraser</button>
+      <button class="big-button" onclick="UserInterface.handleClick({subject: 'pen', action: 'enableDraw'})">Pen</button>
+      <button class="big-button" onclick="UserInterface.handleClick({subject: 'pen', action: 'enableErase'})">Eraser</button>
     </div>
   </div>
 </body>
+<script src='../scripts/sleep.js'></script>
 <script src='../scripts/userInterface.js'></script>
 <script src='../scripts/canvas.js'></script>
 <script src='../scripts/pen.js'></script>
