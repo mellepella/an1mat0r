@@ -16,7 +16,7 @@ button {
   background-color: var(--main-darker-white);
   border: solid var(--main-black) 2px;
   border-radius: 5px;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 
 button:hover {
@@ -24,16 +24,16 @@ button:hover {
 }
 
 .big-button {
-  box-shadow: rgba(0, 0, 0, .4) 0px 0px 10px;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   width: 4rem;
 }
 
 .small-button {
   width: 2rem;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
 }
 
 .slider {
@@ -41,7 +41,16 @@ button:hover {
 }
 
 .shadow {
-  box-shadow: rgba(0, 0, 0, .5) 0px 0px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+}
+
+#canvas-overlay {
+  position: absolute;
+  top: 1.2rem;
+  left: 14.2rem;
+  z-index: 999;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 #info-field {
@@ -51,7 +60,7 @@ button:hover {
 }
 
 #info-field > * {
-  margin: .3rem;
+  margin: 0.3rem;
 }
 
 #drawing-area {
@@ -67,7 +76,7 @@ button:hover {
 }
 
 #toolbar > * {
-  margin: .3rem;
+  margin: 0.3rem;
 }
 
 #application {

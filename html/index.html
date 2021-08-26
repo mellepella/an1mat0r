@@ -15,7 +15,7 @@
         <label id="frames-slider-label">Current frame</label>
         <div>
           <input type="range" class="slider" id="frames-slider" min="0" max="0" onchange="UserInterface.sliderOnChange()">
-          <button class="small-button" onclick="UserInterface.newFrame()">+</button>
+          <button class="small-button" onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'newFrame'})">+</button>
         </div>
         <div class="frame-tools">
           <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showPreviousFrame'})"><<</button>
@@ -25,6 +25,7 @@
         <p id="x-coordinate">X: ...</p>
         <p id="y-coordinate">Y: ...</p>
       </div>
+      <canvas id="canvas-overlay"></canvas>
     </div>
     <div id="toolbar">
       <button class="big-button" onclick="UserInterface.handleClick({subject: 'pen', action: 'enableDraw'})">Pen</button>
@@ -33,11 +34,11 @@
   </div>
 </body>
 <script src='../scripts/sleep.js'></script>
-<script src='../scripts/userInterface.js'></script>
 <script src='../scripts/canvas.js'></script>
 <script src='../scripts/pen.js'></script>
 <script src='../scripts/document.js'></script>
 <script src='../scripts/frameHandler.js'></script>
 <script src='../scripts/application.js'></script>
+<script src='../scripts/userInterface.js'></script>
 <script src='../scripts/onLoad.js'></script>
 </html>

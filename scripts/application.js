@@ -24,5 +24,6 @@ class Application {
 
   static start() {
     FrameHandler.newFrame(this.frameTemplate);
+    UserInterface.start();
   }
 }
