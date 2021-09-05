@@ -1,6 +1,10 @@
 class UserInterface {
-  static tools = { slider: document.getElementById("frames-slider") };
-  static info = { sliderLabel: document.getElementById("frames-slider-label") };
+  static tools = { slider: Document.find("frames-slider") };
+  static info = {
+    sliderLabel: Document.find("frames-slider-label"),
+    xCoordinate: Document.find("x-coordinate"),
+    yCoordinate: Document.find("y-coordinate"),
+  };
   static binds = {
     frameHandler: {
       newFrame: () => {
