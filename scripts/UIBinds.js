@@ -33,7 +33,7 @@ class UIBinds {
     clear: () => {
       const canvasHeight = this.overlay.src.height;
       const canvasWidth = this.overlay.src.width;
-      this.overlay.getCtx().clearRect(0, 0, canvasWidth, canvasWidth);
+      this.overlay.getCtx().clearRect(0, 0, canvasWidth, canvasHeight);
     },
     size: Application.UNIT_SIZE,
   };
