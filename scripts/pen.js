@@ -39,6 +39,7 @@ class Pen {
 
   startDrawState() {
     this.isDrawing = true;
+    this[this.method](x, y);
   }
 
   stopDrawState() {
@@ -48,13 +49,9 @@ class Pen {
   addEventListeners() {
     this.addEventListener("mousedown", (x, y) => {
       Application.pen.startDrawState();
-      Application.pen[Application.pen.method](x, y);
     });
     this.addEventListener("mousemove", (x, y) => {
       UserInterface.onOverlayMove(x, y);
-      if (Application.pen.isDrawing) {
-        Application.pen[Application.pen.method](x, y);
-      }
     });
     this.addEventListener("mouseup", () => {
       Application.pen.stopDrawState();

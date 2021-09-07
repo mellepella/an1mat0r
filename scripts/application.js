@@ -11,11 +11,8 @@ class Application {
     height: this.UNIT_SIZE * 10,
   };
 
-  static error(error, caller) {
+  static error(error) {
     console.error(`Application stumbled upon an error: "${error}"`);
-    console.group("Info");
-    console.log(`Caller: ${caller.name}`);
-    console.groupEnd();
   }
 
   static roundToGrid(value) {

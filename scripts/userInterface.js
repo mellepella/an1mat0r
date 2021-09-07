@@ -26,6 +26,9 @@ class UserInterface {
     UIBinds.overlay.clear();
     UIBinds.overlay.draw({ x, y });
     this.changeCoordinates(x, y);
+    if (Application.pen.isDrawing) {
+      Application.pen[Application.pen.method](x, y);
+    }
   }
 
   static sliderLabelRefresh(currentFrame) {
