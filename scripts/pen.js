@@ -7,6 +7,7 @@ class Pen {
     this.width = width;
     this.height = height;
     this.method = "draw";
+    this.isDrawing = false;
     this.methods = ["draw", "erase"];
     this.errors = {
       invalidMethod(method) {
@@ -36,21 +37,39 @@ class Pen {
     FrameHandler.currentFrame.erase(this);
   }
 
+  startDrawState() {
+    this.isDrawing = true;
+  }
+
+  stopDrawState() {
+    this.isDrawing = false;
+  }
+
+  addEventListeners() {
+    this.addEventListener("mousedown", (x, y) => {
+      Application.pen.startDrawState();
+      Application.pen[Application.pen.method](x, y);
+    });
+    this.addEventListener("mousemove", (x, y) => {
+      UserInterface.onOverlayMove(x, y);
+      if (Application.pen.isDrawing) {
+        Application.pen[Application.pen.method](x, y);
+      }
+    });
+    this.addEventListener("mouseup", () => {
+      Application.pen.stopDrawState();
+    });
+  }
+
   addEventListener(event, consequence) {
     FrameHandler.currentFrame.src.addEventListener(event, function (ev) {
       const x = Application.roundToGrid(ev.offsetX);
       const y = Application.roundToGrid(ev.offsetY);
       consequence(x, y);
     });
-    FrameHandler.currentFrame.src.addEventListener("mousemove", function () {});
   }
 
   start() {
-    this.addEventListener("click", function (x, y) {
-      Application.pen[Application.pen.method](x, y);
-    });
-    this.addEventListener("mousemove", function (x, y) {
-      UserInterface.onOverlayMove(x, y);
-    });
+    this.addEventListeners();
   }
 }
