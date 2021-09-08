@@ -37,7 +37,7 @@ class Pen {
     FrameHandler.currentFrame.erase(this);
   }
 
-  startDrawState() {
+  startDrawState(x, y) {
     this.isDrawing = true;
     this[this.method](x, y);
   }
@@ -48,7 +48,7 @@ class Pen {
 
   addEventListeners() {
     this.addEventListener("mousedown", (x, y) => {
-      Application.pen.startDrawState();
+      Application.pen.startDrawState(x, y);
     });
     this.addEventListener("mousemove", (x, y) => {
       UserInterface.onOverlayMove(x, y);
