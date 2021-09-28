@@ -13,7 +13,7 @@ class Canvas {
     elem.height = this.height;
     elem.width = this.width;
     elem.id = this.id;
-    Document.manipulate({ method: "append", elem });
+    DocumentHandler.manipulate({ method: "append", elem });
   }
 
   draw({ x, y, width, height, color }) {
@@ -38,16 +38,16 @@ class Canvas {
   }
 
   hide() {
-    Document.manipulate({ method: "hide", elem: this.src });
+    DocumentHandler.manipulate({ method: "hide", elem: this.src });
   }
 
   show() {
-    Document.manipulate({ method: "show", elem: this.src });
+    DocumentHandler.manipulate({ method: "show", elem: this.src });
   }
 
   start() {
     this.create();
-    this.src = Document.find(this.id);
+    this.src = DocumentHandler.find(this.id);
     this.ctx = this.src.getContext("2d");
     return true;
   }

@@ -49,6 +49,7 @@ class Pen {
   addEventListeners() {
     this.addEventListener("mousedown", (x, y) => {
       Application.pen.startDrawState(x, y);
+      Application.modified = true;
     });
     this.addEventListener("mousemove", (x, y) => {
       UserInterface.onOverlayMove(x, y);
@@ -60,8 +61,8 @@ class Pen {
 
   addEventListener(event, consequence) {
     FrameHandler.currentFrame.src.addEventListener(event, function (ev) {
-      const x = Application.roundToGrid(ev.offsetX);
-      const y = Application.roundToGrid(ev.offsetY);
+      const x = CoordinateSystem.roundToGrid(ev.offsetX);
+      const y = CoordinateSystem.roundToGrid(ev.offsetY);
       consequence(x, y);
     });
   }

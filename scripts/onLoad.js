@@ -1,1 +1,2 @@
-window.onload = Document.onLoad();
+window.onload = DocumentHandler.onLoad();
+window.onbeforeunload = () => DocumentHandler.beforeUnload();

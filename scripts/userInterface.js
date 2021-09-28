@@ -1,11 +1,11 @@
 class UserInterface {
   static tools = {
-    slider: Document.find("frames-slider"),
+    slider: DocumentHandler.find("frames-slider"),
   };
   static info = {
     sliderLabel: document.getElementById("frames-slider-label"),
     xCoordinate: document.getElementById("x-coordinate"),
-    yCoordinate: Document.find("y-coordinate"),
+    yCoordinate: DocumentHandler.find("y-coordinate"),
   };
 
   static adjustOverlaySize() {

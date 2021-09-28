@@ -1,4 +1,4 @@
-class Document {
+class DocumentHandler {
   static methods = {
     append: (elem) => {
       document.getElementById("drawing-area").appendChild(elem);
@@ -19,6 +19,10 @@ class Document {
       document.getElementById(identifier) ??
       document.getElementsByClassName(identifier)
     );
+  }
+
+  static beforeUnload() {
+    return Application.modified ? "" : null;
   }
 
   static onLoad() {

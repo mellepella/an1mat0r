@@ -1,6 +1,7 @@
 class UIBinds {
   static frameHandler = {
     newFrame: () => {
+      Application.modified = true;
       FrameHandler.newFrame(Application.frameTemplate);
     },
     play: () => {

@@ -1,5 +1,6 @@
 class Application {
   static UNIT_SIZE = 50;
+  static modified = false;
   static pen = new Pen({
     color: "black",
     shape: "rect",
@@ -13,10 +14,6 @@ class Application {
 
   static error(error) {
     console.error(`Application stumbled upon an error: "${error}"`);
-  }
-
-  static roundToGrid(value) {
-    return Math.floor(value / this.UNIT_SIZE) * this.UNIT_SIZE;
   }
 
   static start() {
