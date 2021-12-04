@@ -21,6 +21,10 @@ class UIBinds {
     enableErase: () => {
       Application.pen.changeMethod("erase");
     },
+    refreshColor: () => {
+      const color = UserInterface.tools.colorPicker.value;
+      Application.pen.changeColor(color);
+    }
   };
   static overlay = {
     src: document.getElementById("canvas-overlay"),

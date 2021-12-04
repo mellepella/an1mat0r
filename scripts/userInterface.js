@@ -1,6 +1,7 @@
 class UserInterface {
   static tools = {
     slider: DocumentHandler.find("frames-slider"),
+    colorPicker: DocumentHandler.find("color-picker")
   };
   static info = {
     sliderLabel: document.getElementById("frames-slider-label"),

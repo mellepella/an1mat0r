@@ -16,6 +16,10 @@ class Pen {
     };
   }
 
+  changeColor(color) {
+    this.color = color;
+  }
+
   changeMethod(method) {
     if (this.methods.includes(method)) {
       this.method = method;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
   <link rel="stylesheet" href="./styles/root.css">
   <link rel="stylesheet" href="./styles/main.css">
   <meta charset="UTF-8">
@@ -8,19 +9,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>An1mat0r</title>
 </head>
+
 <body>
   <div id="application">
     <div id="drawing-area" class="shadow">
       <div id="info-field">
         <label id="frames-slider-label">Current frame</label>
         <div>
-          <input type="range" class="slider" id="frames-slider" min="0" max="0" onchange="UserInterface.sliderOnChange()">
-          <button class="small-button" onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'newFrame'})">+</button>
+          <input type="range" class="slider" id="frames-slider" min="0" max="0"
+            onchange="UserInterface.sliderOnChange()">
+          <button class="small-button"
+            onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'newFrame'})">+</button>
         </div>
         <div class="frame-tools">
-          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showPreviousFrame'})"><<</button>
-          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'play'})">Play</button>
-          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showNextFrame'})">>></button>
+          <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showPreviousFrame'})">
+            << </button>
+              <button onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'play'})">Play</button>
+              <button
+                onclick="UserInterface.handleClick({subject: 'frameHandler', action: 'showNextFrame'})">>></button>
         </div>
         <p id="x-coordinate">X: ...</p>
         <p id="y-coordinate">Y: ...</p>
@@ -28,8 +34,12 @@
       <canvas id="canvas-overlay"></canvas>
     </div>
     <div id="toolbar">
-      <button class="big-button" onclick="UserInterface.handleClick({subject: 'pen', action: 'enableDraw'})">Pen</button>
-      <button class="big-button" onclick="UserInterface.handleClick({subject: 'pen', action: 'enableErase'})">Eraser</button>
+      <button class="big-button"
+        onclick="UserInterface.handleClick({subject: 'pen', action: 'enableDraw'})">Pen</button>
+      <button class="big-button"
+        onclick="UserInterface.handleClick({subject: 'pen', action: 'enableErase'})">Eraser</button>
+      <input id="color-picker" type="color"
+        oninput="UserInterface.handleClick({subject: 'pen', action: 'refreshColor'})">
     </div>
   </div>
 </body>
@@ -43,4 +53,5 @@
 <script src='./scripts/UIBinds.js'></script>
 <script src='./scripts/coordinateSystem.js'></script>
 <script src='./scripts/onLoad.js'></script>
+
 </html>
