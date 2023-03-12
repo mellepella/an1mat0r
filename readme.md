@@ -30,4 +30,4 @@ The UI is *not* done, but here are the things that are:
 
 - **Pen button:** A button which will activate the pen, and you will now be able to draw once the canvas registers a mouse click.
 
-- **Pen button:** A button which will activate the eraser, and you will now be able to erase once the canvas registers a mouse click.
+- **Eraser button:** A button which will activate the eraser, and you will now be able to erase once the canvas registers a mouse click.
